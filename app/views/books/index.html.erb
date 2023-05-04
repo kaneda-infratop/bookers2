@@ -1,5 +1,7 @@
 <% @books.each do |book| %>
 <div>
+  <%= link_to book_path(book.id) do %>
+  <% end %>
   <p>Title:<%= book.title %></p>
   <p>Opinion:<%= book.body %></p>
   <p>user:<%= book.user.name %></p>
