@@ -1,7 +1,12 @@
 class Book < ApplicationRecord
   has_one_attached :image
   belongs_to :user
-
+  
+  with_options presence: true do
+    validates :title
+    validates :body
+  end
+  
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

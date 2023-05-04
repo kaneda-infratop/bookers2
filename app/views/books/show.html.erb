@@ -1,5 +1,12 @@
 <div>
+    <%= flash[:notice] %>
+</div>
+
+<div>
   <p>Title : <%= @book.title %></p>
   <p>Opinion : <%= @book.body %></p>
   <p>user : <%= @book.user.name %></p>
+  <% if @book.user == current_user %>
+   <%= link_to 'Destroy', book_path(@book), method: :delete,"data-confirm"=>"Are you sure?" %>
+  <% end %>
 </div>
